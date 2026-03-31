@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Play, ArrowRight } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
 // Particle canvas component
 function ParticleCanvas() {
@@ -107,6 +108,7 @@ const fadeUp = {
 };
 
 export default function Hero() {
+  const { t } = useLang();
   return (
     <section
       id="hero"
@@ -143,7 +145,7 @@ export default function Hero() {
         <motion.div variants={fadeUp} className="mb-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-[0.2em] uppercase">
             <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-            Professional MMA Fighter
+            {t.hero.badge}
           </div>
         </motion.div>
 
@@ -166,7 +168,7 @@ export default function Hero() {
         {/* Tagline */}
         <motion.div variants={fadeUp} className="mb-6">
           <p className="shimmer-text text-[clamp(1rem,2.5vw,1.5rem)] font-bold tracking-[0.3em] uppercase">
-            Discipline&nbsp;·&nbsp;Power&nbsp;·&nbsp;Precision
+            {t.hero.tagline}
           </p>
         </motion.div>
 
@@ -175,7 +177,7 @@ export default function Hero() {
           variants={fadeUp}
           className="text-white/40 text-base md:text-lg max-w-lg leading-relaxed mb-12 font-light tracking-wide"
         >
-          Built in the gym. Proven in the cage. A champion is not born — she is forged.
+          {t.hero.subtitle}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -189,7 +191,7 @@ export default function Hero() {
             className="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-sm tracking-wider uppercase shadow-2xl shadow-blue-500/25 transition-all duration-300"
           >
             <Play size={16} className="fill-white group-hover:scale-110 transition-transform" />
-            Watch Training
+            {t.hero.watchTraining}
           </motion.a>
 
           <motion.a
@@ -200,7 +202,7 @@ export default function Hero() {
             whileTap={{ scale: 0.97 }}
             className="group flex items-center gap-3 px-8 py-4 rounded-2xl glass border border-white/15 text-white font-bold text-sm tracking-wider uppercase hover:border-blue-500/40 transition-all duration-300"
           >
-            Follow Journey
+            {t.hero.followJourney}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </motion.a>
         </motion.div>
@@ -211,9 +213,9 @@ export default function Hero() {
           className="mt-20 flex items-center gap-10 md:gap-16"
         >
           {[
-            { value: '3+', label: 'Years Training' },
-            { value: '10K+', label: 'Followers' },
-            { value: '100%', label: 'Dedication' },
+            { value: '18+',  label: t.hero.stats.yearsTraining },
+            { value: '533K', label: t.hero.stats.instagram },
+            { value: '94K',  label: t.hero.stats.youtube },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl md:text-3xl font-black text-gradient">{stat.value}</div>
@@ -230,7 +232,7 @@ export default function Hero() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
       >
-        <span className="text-xs tracking-[0.2em] uppercase font-medium">Scroll</span>
+        <span className="text-xs tracking-[0.2em] uppercase font-medium">{t.hero.scroll}</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="560" viewBox="0 0 400 560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1a4a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#160d28;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="fade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.7" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="560" fill="url(#bg)"/>
+  <rect width="400" height="560" fill="url(#glow)"/>
+  
+  <!-- Subtle grid lines -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="140" x2="400" y2="140"/>
+    <line x1="0" y1="280" x2="400" y2="280"/>
+    <line x1="0" y1="420" x2="400" y2="420"/>
+    <line x1="100" y1="0" x2="100" y2="560"/>
+    <line x1="200" y1="0" x2="200" y2="560"/>
+    <line x1="300" y1="0" x2="300" y2="560"/>
+  </g>
+  
+  <!-- Center icon circle -->
+  <circle cx="200" cy="230" r="48" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <!-- Fighter silhouette (simplified) -->
+  <circle cx="200" cy="208" r="16" fill="rgba(255,255,255,0.12)"/>
+  <path d="M170 260 Q200 240 230 260 L235 290 Q200 275 165 290 Z" fill="rgba(255,255,255,0.12)"/>
+  
+  <!-- Blue accent dot top -->
+  <circle cx="200" cy="80" r="3" fill="#3b82f6" opacity="0.6"/>
+  <line x1="200" y1="83" x2="200" y2="180" stroke="#3b82f6" stroke-width="0.5" opacity="0.2"/>
+  
+  <!-- Fade overlay bottom -->
+  <rect width="400" height="560" fill="url(#fade)"/>
+  
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="400" height="1" fill="url(#topline)" opacity="0.4"/>
+  <defs>
+    <linearGradient id="topline" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="50%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Label -->
+  <text x="200" y="490" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="4" fill="rgba(255,255,255,0.4)" text-anchor="middle">STRENGTH</text>
+  
+  <!-- Border glow effect -->
+  <rect x="0.5" y="0.5" width="399" height="559" rx="0" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+</svg>

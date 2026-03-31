@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useLang } from '../i18n/LanguageContext';
 
 const socials = [
   {
@@ -31,27 +32,23 @@ const socials = [
 ];
 
 export default function Footer() {
+  const { t } = useLang();
   return (
     <footer className="py-12 px-6 border-t border-white/5 relative">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
               <span className="text-white font-black text-base">T</span>
             </div>
             <div>
               <span className="font-black text-white text-lg tracking-widest uppercase">Tahmina</span>
-              <p className="text-white/30 text-xs tracking-widest uppercase">MMA Fighter</p>
+              <p className="text-white/30 text-xs tracking-widest uppercase">{t.footer.role}</p>
             </div>
           </div>
 
-          {/* Tagline */}
-          <p className="text-white/25 text-xs tracking-[0.2em] uppercase text-center">
-            Discipline · Power · Precision
-          </p>
+          <p className="text-white/25 text-xs tracking-[0.2em] uppercase text-center">{t.footer.tagline}</p>
 
-          {/* Social Icons */}
           <div className="flex items-center gap-3">
             {socials.map((s) => (
               <motion.a
@@ -70,10 +67,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-white/5 text-center">
           <p className="text-white/20 text-xs tracking-wider">
-            © {new Date().getFullYear()} Tahmina. All rights reserved.
+            © {new Date().getFullYear()} Tahmina. {t.footer.copyright}
           </p>
         </div>
       </div>

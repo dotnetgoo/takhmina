@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
 function IgIcon({ size = 18 }: { size?: number }) {
   return (
@@ -19,12 +20,12 @@ function YtIcon({ size = 18, className = '' }: { size?: number; className?: stri
 }
 
 export default function CTA() {
+  const { t } = useLang();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <section className="py-32 px-6 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/8 rounded-full blur-[120px] animate-pulse-glow" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-purple-600/6 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
@@ -35,24 +36,21 @@ export default function CTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          {/* Pre-title */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-white/50 text-xs font-semibold tracking-[0.2em] uppercase mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-            Join the Movement
+            {t.cta.badge}
           </div>
 
-          {/* Headline */}
           <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none mb-6">
-            Train Like a{' '}
-            <span className="text-gradient">Fighter</span>
+            {t.cta.heading1}{' '}
+            <span className="text-gradient">{t.cta.heading2}</span>
           </h2>
 
           <p className="text-white/45 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-            The cage doesn't care about excuses. <br className="hidden md:block" />
-            Follow Tahmina's journey and witness what real dedication looks like.
+            {t.cta.desc1} <br className="hidden md:block" />
+            {t.cta.desc2}
           </p>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
               href="https://www.instagram.com/tahmina_k3/"
@@ -63,7 +61,7 @@ export default function CTA() {
               className="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-600 via-rose-500 to-orange-500 text-white font-bold text-sm tracking-wider uppercase shadow-2xl shadow-pink-500/20 transition-all duration-300"
             >
               <IgIcon size={18} />
-              Follow on Instagram
+              {t.cta.followIG}
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
@@ -76,11 +74,10 @@ export default function CTA() {
               className="group flex items-center gap-3 px-8 py-4 rounded-2xl glass border border-white/15 text-white font-bold text-sm tracking-wider uppercase hover:border-red-500/30 transition-all duration-300"
             >
               <YtIcon size={18} className="text-red-400" />
-              Watch Videos
+              {t.cta.watchVideos}
             </motion.a>
           </div>
 
-          {/* Decorative line */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
